@@ -19,6 +19,13 @@ python -m uv run streamlit run app.py
 - The app loads `models/fire_best.pt` if it exists.
 - Otherwise it falls back to `yolov8n.pt`.
 
+## Sample images (local only)
+Kaggle dataset files cannot be redistributed, so sample images are generated locally.
+
+```powershell
+python -m uv run python scripts\export_sample_images.py
+```
+
 ## Fast training (optional)
 Prereq: a valid Kaggle token in `C:\Users\danie\.kaggle\kaggle.json`.
 

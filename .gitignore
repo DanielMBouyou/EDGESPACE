@@ -12,6 +12,8 @@ wheels/
 # Local data/artifacts
 data/
 runs/
+sample_images/*
+!sample_images/README.md
 
 # Keep only the trained model for deployment
 models/*
