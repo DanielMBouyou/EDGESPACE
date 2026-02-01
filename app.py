@@ -5,6 +5,7 @@ import json
 import time
 from PIL import Image
 import numpy as np
+from pathlib import Path
 
 # --- CONFIGURATION ---
 st.set_page_config(page_title="SpaceEdge AI - Fire Detection", layout="wide")
@@ -16,7 +17,8 @@ device = "cpu" # Sur le satellite, ce serait 'cuda' (Nvidia Jetson)
 @st.cache_resource
 def load_model():
     # On télécharge un modèle pré-entraîné spécifique au feu (poids légers ~6MB)
-    return YOLO('yolov8n.pt') # Pour la démo, on utilise nano
+    custom = Path("models/fire_best.pt")
+    return YOLO(str(custom) if custom.exists() else "yolov8n.pt") # Pour la démo, on utilise nano
 
 model = load_model()
 
