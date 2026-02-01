@@ -1,19 +1,44 @@
 [project]
-name = "demo-ais"
-version = "0.1.0"
-description = "Add your description here"
+name = "spaceedge-ai"
+version = "2.0.0"
+description = "Edge AI wildfire detection for space-based platforms (Loft Orbital, D-Orbit)"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "DanielMBouyou"}
+]
+keywords = ["wildfire", "satellite", "edge-ai", "yolo", "computer-vision", "space"]
+
 dependencies = [
-    "ipykernel>=7.1.0",
-    "imagecodecs>=2026.1.14",
-    "opencv-python-headless>=4.13.0.90",
-    "streamlit>=1.53.1",
-    "tifffile>=2026.1.28",
-    "ultralytics>=8.4.9",
+    "ultralytics>=8.0.0",
+    "opencv-python-headless>=4.8.0",
+    "numpy>=1.24.0",
+    "pillow>=10.0.0",
+    "tifffile>=2023.0.0",
+    "imagecodecs>=2023.0.0",
+    "streamlit>=1.28.0",
+    "kaggle>=1.5.0",
 ]
 
-[dependency-groups]
+[project.optional-dependencies]
 dev = [
-    "ipykernel>=7.1.0",
+    "ipykernel>=6.25.0",
+    "pytest>=7.4.0",
+    "ruff>=0.1.0",
 ]
+tensorrt = [
+    "onnx>=1.14.0",
+    "onnxruntime>=1.16.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

@@ -1,20 +1,40 @@
 # Python-generated files
 __pycache__/
-*.py[oc]
+*.py[cod]
+*$py.class
 build/
 dist/
 wheels/
 *.egg-info
+*.egg
 
 # Virtual environments
 .venv
+venv/
+env/
 
-# Local data/artifacts
-data/
+# Local data/artifacts (large files)
+data/raw/
+data/processed/
+*.tif
+*.tiff
 runs/
-sample_images/*
-!sample_images/README.md
 
 # Keep only the trained model for deployment
-models/*
-!models/fire_best.pt
+models/*.engine
+models/*.onnx
+
+# Kaggle credentials
+kaggle.json
+
+# UV
+.uv/
+uv.lock
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
